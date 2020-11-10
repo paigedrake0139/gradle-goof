@@ -88,6 +88,6 @@ dependencyScanning:
     - npm install snyk-to-html -g
     # Run snyk auth, snyk monitor, snyk test to break build and output report
     - snyk auth $SNYK_TOKEN
-    - snyk monitor --project-name=gradle-goof_GitLab_CI/CD
-    - snyk test
+    - snyk monitor --all-projects --project-name=gradle-goof_GitLab_CI/CD
+    - snyk test --all-sub-projects
 
