@@ -13,8 +13,8 @@ jobs:
         env:
            SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
       - name: Snyk Delta
-        #run: snyk test --json --print-deps | snyk-delta -d --baselineOrg 
-        run: ./snyk_delta_all_projects.sh --org 64a8f832-76f3-41c4-8ed6-50536c487b48
+        #run: snyk test --json --print-deps | snyk-delta -d --all-projects 
+        run: /bin/bash snyk_delta_all_projects.sh --severity=high
         continue-on-error: true
         env:
            SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
