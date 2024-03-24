@@ -8,12 +8,13 @@ jobs:
       - uses: snyk/actions/setup@master
       - run: npm i -g snyk-delta
       - name: Snyk Test
-        run: snyk test --json-file-output=results.json
+        run: snyk test --all-projects --json-file-output=results.json
         continue-on-error: true
         env:
            SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
       - name: Snyk Delta
-        run: snyk test --json --print-deps | snyk-delta -d --baselineOrg 
+        #run: snyk test --json --print-deps | snyk-delta -d --baselineOrg 
+        run: ./snyk_delta_all_projects.sh --org 64a8f832-76f3-41c4-8ed6-50536c487b48
         continue-on-error: true
         env:
            SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
