@@ -19,7 +19,7 @@ jobs:
         env:
            SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
       - name: Snyk Monitor
-        run: snyk monitor
+        run: snyk monitor --all-projects
         env:
            SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
       #name: Upload SARIF file
